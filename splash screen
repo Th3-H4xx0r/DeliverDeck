@@ -1,0 +1,41 @@
+import 'package:flutter/material.dart';
+
+class SplashScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Stack(
+        children: <Widget>[
+          Container(
+            child: Column(
+              children: <Widget>[
+                Expanded(
+                  flex: 2,
+                  child: Container(
+                    color: Colors.black,
+                    alignment: Alignment.bottomCenter,
+                    width: double.infinity,
+                    child: Text(
+                      'DeliverDeck',
+                      style: TextStyle(color: Colors.white, fontSize: 55,fontFamily: 'Montserrat'),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  flex: 3,
+                  child: Container(
+                    width: double.infinity,
+                    child: Image.network(
+                      'https://thumbs.dreamstime.com/b/open-box-icon-black-background-black-flat-style-vector-illustration-open-box-icon-black-background-black-flat-style-vector-170441923.jpg',
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
