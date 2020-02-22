@@ -1,0 +1,646 @@
+import 'dart:ui';
+
+import 'package:flutter/material.dart';
+import 'package:line_icons/line_icons.dart';
+
+import 'data.dart';
+
+class HomeScreen extends StatefulWidget {
+  HomeScreen();
+
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        backgroundColor: darkmode ? Colors.white : Colors.black,
+        body: ListView(
+          children: <Widget>[
+            SizedBox(
+              height: 10,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                Icon(
+                  LineIcons.user,
+                  color: darkmode ? Colors.black : Colors.white,
+                ),
+                SizedBox(
+                  width: 200,
+                ),
+                Icon(
+                  LineIcons.search,
+                  color: darkmode ? Colors.black : Colors.white,
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Row(
+              children: <Widget>[
+                SizedBox(
+                  width: 20,
+                ),
+                Text(
+                  'Amaryllis',
+                  style: TextStyle(
+                      color: darkmode ? Colors.black : Colors.white,
+                      fontSize: 30,
+                      fontWeight: FontWeight.w700),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Center(
+              child: Container(
+                height: 45,
+                child: Row(
+                  children: <Widget>[
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Icon(
+                      LineIcons.search,
+                      color: Colors.grey[900],
+                    ),
+                    Container(
+                      height: 45,
+                      width: MediaQuery.of(context).size.width * 0.80,
+                      child: TextField(
+                        style: TextStyle(
+                          color: darkmode ? Colors.black : Colors.white,
+                        ),
+                        textAlign: TextAlign.center,
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: '   Search',
+                          hintStyle: TextStyle(
+                            color: darkmode ? Colors.black87 : Colors.white24,
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+                width: MediaQuery.of(context).size.width * 0.95,
+                decoration: BoxDecoration(
+                    color: darkmode
+                        ? Colors.grey[100]
+                        : Colors.white.withOpacity(0.07),
+                    borderRadius: BorderRadius.circular(10)),
+              ),
+            ),
+            SizedBox(
+              height: 60,
+            ),
+            Row(
+              children: <Widget>[
+                SizedBox(
+                  width: 20,
+                ),
+                Text(
+                  'Popular Categories',
+                  style: TextStyle(
+                      color: darkmode ? Colors.black : Colors.white,
+                      fontSize: 25,
+                      fontWeight: FontWeight.w700),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Container(
+                height: 170,
+                child: GridView.count(
+                  scrollDirection: Axis.horizontal,
+                  crossAxisCount: 1,
+                  mainAxisSpacing: 20,
+                  children: <Widget>[
+                    GestureDetector(
+                      onTap: () {},
+                      child: Container(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: <Widget>[
+                            ClipRRect(
+                              // make sure we apply clip it properly
+                              child: BackdropFilter(
+                                filter:
+                                    ImageFilter.blur(sigmaX: 20, sigmaY: 20),
+                                child: Container(
+                                    decoration: BoxDecoration(),
+                                    alignment: Alignment.center,
+                                    child: Padding(
+                                      padding:
+                                          EdgeInsets.symmetric(vertical: 5),
+                                      child: Text(
+                                        'Sports Cars',
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.w700),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    )),
+                              ),
+                            ),
+                          ],
+                        ),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Colors.black,
+                            image: DecorationImage(
+                                image: NetworkImage(
+                                    'https://www.autocar.co.uk/sites/autocar.co.uk/files/styles/body-image/public/911-road-3629a.jpg?itok=m6x23Go0'),
+                                fit: BoxFit.fitHeight)),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {},
+                      child: Container(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: <Widget>[
+                            ClipRRect(
+                              // make sure we apply clip it properly
+                              child: BackdropFilter(
+                                filter:
+                                    ImageFilter.blur(sigmaX: 20, sigmaY: 20),
+                                child: Container(
+                                    decoration: BoxDecoration(),
+                                    alignment: Alignment.center,
+                                    child: Padding(
+                                      padding:
+                                          EdgeInsets.symmetric(vertical: 5),
+                                      child: Text(
+                                        'Sedans',
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.w700),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    )),
+                              ),
+                            ),
+                          ],
+                        ),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Colors.black,
+                            image: DecorationImage(
+                                image: NetworkImage(
+                                    'https://cdn.motor1.com/images/mgl/MQO84/s1/audi-rs-7-sportback-2019.jpg'),
+                                fit: BoxFit.fitHeight)),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {},
+                      child: Container(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: <Widget>[
+                            ClipRRect(
+                              // make sure we apply clip it properly
+                              child: BackdropFilter(
+                                filter:
+                                    ImageFilter.blur(sigmaX: 20, sigmaY: 20),
+                                child: Container(
+                                    decoration: BoxDecoration(),
+                                    alignment: Alignment.center,
+                                    child: Padding(
+                                      padding:
+                                          EdgeInsets.symmetric(vertical: 5),
+                                      child: Text(
+                                        'Suvs',
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.w700),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    )),
+                              ),
+                            ),
+                          ],
+                        ),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Colors.black,
+                            image: DecorationImage(
+                                image: NetworkImage(
+                                    'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2019-bmw-x7-1550161348.jpg?crop=0.822xw:1.00xh;0.0753xw,0&resize=640:*'),
+                                fit: BoxFit.fitHeight)),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {},
+                      child: Container(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: <Widget>[
+                            ClipRRect(
+                              // make sure we apply clip it properly
+                              child: BackdropFilter(
+                                filter:
+                                    ImageFilter.blur(sigmaX: 20, sigmaY: 20),
+                                child: Container(
+                                    decoration: BoxDecoration(),
+                                    alignment: Alignment.center,
+                                    child: Padding(
+                                      padding:
+                                          EdgeInsets.symmetric(vertical: 5),
+                                      child: Text(
+                                        'Trucks',
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.w700),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    )),
+                              ),
+                            ),
+                          ],
+                        ),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Colors.black,
+                            image: DecorationImage(
+                                image: NetworkImage(
+                                    'https://pictures.dealer.com/p/phillongdenverfordfd/0351/239cb08af967cd64ce22b60c9d74cf79x.jpg'),
+                                fit: BoxFit.fitHeight)),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {},
+                      child: Container(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: <Widget>[
+                            ClipRRect(
+                              // make sure we apply clip it properly
+                              child: BackdropFilter(
+                                filter:
+                                    ImageFilter.blur(sigmaX: 20, sigmaY: 20),
+                                child: Container(
+                                    decoration: BoxDecoration(),
+                                    alignment: Alignment.center,
+                                    child: Padding(
+                                      padding:
+                                          EdgeInsets.symmetric(vertical: 5),
+                                      child: Text(
+                                        'Luxury Cars',
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.w700),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    )),
+                              ),
+                            ),
+                          ],
+                        ),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Colors.black,
+                            image: DecorationImage(
+                                image: NetworkImage(
+                                    'https://st.motortrend.com/uploads/sites/10/2015/09/2015-Mercedes-Benz-S550-4Matic-Coupe-front-three-quarter-05.jpg'),
+                                fit: BoxFit.fitHeight)),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {},
+                      child: Container(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: <Widget>[
+                            ClipRRect(
+                              // make sure we apply clip it properly
+                              child: BackdropFilter(
+                                filter:
+                                    ImageFilter.blur(sigmaX: 20, sigmaY: 20),
+                                child: Container(
+                                    decoration: BoxDecoration(),
+                                    alignment: Alignment.center,
+                                    child: Padding(
+                                      padding:
+                                          EdgeInsets.symmetric(vertical: 5),
+                                      child: Text(
+                                        'Minivans',
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.w700),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    )),
+                              ),
+                            ),
+                          ],
+                        ),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Colors.black,
+                            image: DecorationImage(
+                                image: NetworkImage(
+                                    'https://www.gerrywood-dodge.com/assets/shared/CustomHTMLFiles/Responsive/MRP/Chrysler/2017/Pacifica/images/2017-Chrysler-Pacifica-01.jpg'),
+                                fit: BoxFit.fitHeight)),
+                      ),
+                    ),
+                  ],
+                ),
+                color: Colors.transparent,
+              ),
+            ),
+            SizedBox(
+              height: 40,
+            ),
+            Row(
+              children: <Widget>[
+                SizedBox(
+                  width: 20,
+                ),
+                Text(
+                  'Trending',
+                  style: TextStyle(
+                      color: darkmode ? Colors.black : Colors.white,
+                      fontSize: 25,
+                      fontWeight: FontWeight.w700),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              child: Center(
+                child: Container(
+                  width: MediaQuery.of(context).size.width * 0.95,
+                  height: MediaQuery.of(context).size.width / 2,
+                  child: PageView(
+                    children: <Widget>[
+                      Container(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: <Widget>[
+                            Row(
+                              children: <Widget>[
+                                SizedBox(
+                                  width: 20,
+                                ),
+                                Text(
+                                  'Porsche 718 Cayman',
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 25,
+                                      fontWeight: FontWeight.w700),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 10,
+                            )
+                          ],
+                        ),
+                        height: 200,
+                        width: MediaQuery.of(context).size.width * 0.90,
+                        decoration: BoxDecoration(
+                            color: Colors.black,
+                            borderRadius: BorderRadius.circular(10),
+                            image: DecorationImage(
+                                image: NetworkImage(
+                                    'https://www.automobilemag.com/uploads/sites/11/2019/07/2020-Porsche-718-Cayman-GT4-white-17.jpg?fit=around%7C875:492'),
+                                fit: BoxFit.fitWidth)),
+                      ),
+                      Container(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: <Widget>[
+                            Row(
+                              children: <Widget>[
+                                SizedBox(
+                                  width: 20,
+                                ),
+                                Text(
+                                  'Bmw M3',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 25,
+                                      fontWeight: FontWeight.w700),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 10,
+                            )
+                          ],
+                        ),
+                        height: 200,
+                        width: MediaQuery.of(context).size.width * 0.90,
+                        decoration: BoxDecoration(
+                            color: Colors.black,
+                            borderRadius: BorderRadius.circular(10),
+                            image: DecorationImage(
+                                image: NetworkImage(
+                                    'https://cdn.bringatrailer.com/wp-content/uploads/2017/10/59e0d4f11e488_Exterior7-940x701.jpg'),
+                                fit: BoxFit.fitWidth)),
+                      ),
+                      Container(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: <Widget>[
+                            Row(
+                              children: <Widget>[
+                                SizedBox(
+                                  width: 20,
+                                ),
+                                Text(
+                                  'Volkswagen Arteon',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 25,
+                                      fontWeight: FontWeight.w700),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 10,
+                            )
+                          ],
+                        ),
+                        height: 200,
+                        width: MediaQuery.of(context).size.width * 0.90,
+                        decoration: BoxDecoration(
+                            color: Colors.black,
+                            borderRadius: BorderRadius.circular(10),
+                            image: DecorationImage(
+                                image: NetworkImage(
+                                    'https://static.carsdn.co/cldstatic/wp-content/uploads/02-volkswagen-arteon-2019-angle--exterior--front--gold--rural.jpg'),
+                                fit: BoxFit.fitWidth)),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 40,
+            ),
+            Row(
+              children: <Widget>[
+                SizedBox(
+                  width: 20,
+                ),
+                Text(
+                  'Guides',
+                  style: TextStyle(
+                      color: darkmode ? Colors.black : Colors.white,
+                      fontSize: 25,
+                      fontWeight: FontWeight.w700),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 0),
+              child: Center(
+                child: Container(
+                  height: 200,
+                  width: MediaQuery.of(context).size.width * 0.95,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: <Widget>[
+                      GestureDetector(
+                          onTap: () {},
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 10),
+                            child: Container(
+                              height: 175,
+                              width: 110,
+                              child: Center(
+                                child: Text(
+                                  '1',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 25,
+                                      fontWeight: FontWeight.w700),
+                                ),
+                              ),
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(10),
+                                  image: DecorationImage(
+                                      image: NetworkImage(
+                                          'https://www.designboom.com/wp-content/uploads/2019/08/docubyte-james-ball-wedged-wonders-italian-concept-cars-designboom-600.jpg'),
+                                      fit: BoxFit.fitHeight)),
+                            ),
+                          )),
+                      GestureDetector(
+                        onTap: () {},
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          child: Container(
+                            height: 175,
+                            width: 110,
+                            child: Center(
+                              child: Text(
+                                '2',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 25,
+                                    fontWeight: FontWeight.w700),
+                              ),
+                            ),
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(10),
+                                image: DecorationImage(
+                                    image: NetworkImage(
+                                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgsVGBLqMTw1iC3bSPI2PN7QqsVO8o2VQnfYXZgldTubpxHz4f&s'),
+                                    fit: BoxFit.fitHeight)),
+                          ),
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () {},
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          child: Container(
+                            height: 175,
+                            width: 110,
+                            child: Center(
+                              child: Text(
+                                '3',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 25,
+                                    fontWeight: FontWeight.w700),
+                              ),
+                            ),
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(10),
+                                image: DecorationImage(
+                                    image: NetworkImage(
+                                        'https://d39a3h63xew422.cloudfront.net/wp-content/uploads/2019/11/24220155/Docubyte.-Wedged-Wonders.-Crop-16-480x320.jpg'),
+                                    fit: BoxFit.fitHeight)),
+                          ),
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () {},
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          child: Container(
+                            height: 175,
+                            width: 110,
+                            child: Center(
+                              child: Text(
+                                '4',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 25,
+                                    fontWeight: FontWeight.w700),
+                              ),
+                            ),
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(10),
+                                image: DecorationImage(
+                                    image: NetworkImage(
+                                        'https://autosportsnation.com/wp-content/uploads/2019/08/ital1.jpg'),
+                                    fit: BoxFit.fitHeight)),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  decoration: BoxDecoration(
+                      color: Colors.transparent,
+                      borderRadius: BorderRadius.circular(10)),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+          ],
+        ));
+  }
+}
