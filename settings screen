@@ -1,0 +1,72 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+import '../widgets/setting.dart';
+
+class SettingsScreen extends StatelessWidget {
+  static const routeName = 'settings-screen';
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 5,
+        title: Center(
+          child: Text(
+            'Settings',
+            style: TextStyle(color: Colors.black),
+          ),
+        ),
+      ),
+      body: Container(
+        color: Colors.white,
+        child: Column(
+          children: <Widget>[
+            SizedBox(
+              height: 30,
+            ),
+            Container(
+              child: Center(
+                child: ListTile(
+                  leading: CircleAvatar(
+                    radius: 40,
+                    backgroundColor: Colors.lightBlue,
+                    child: Text(
+                      'HP',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                  title: Text(
+                    'Holland Pleskac',
+                  ),
+                  subtitle: Text('Your settings'),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Divider(
+              height: 2,
+              color: Colors.grey.shade600,
+              indent: 20,
+              endIndent: 20,
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Setting(Icon(Icons.bluetooth,color: Colors.white),'setting 1', Colors.orange,false),
+            Setting(Icon(Icons.border_outer,color: Colors.white),'setting 1', Colors.green,false),
+            Setting(Icon(Icons.camera_roll,color: Colors.white),'setting 1', Colors.blue,false),
+            Setting(Icon(Icons.card_membership,color: Colors.white),'setting 1', Colors.limeAccent,false),
+            Setting(Icon(Icons.donut_large,color: Colors.white),'setting 1', Colors.pink,false),
+            Setting(Icon(Icons.gps_not_fixed,color: Colors.white),'setting 1', Colors.grey,false),
+            Setting(Icon(Icons.insert_chart,color: Colors.white),'setting 1', Colors.indigo,false),
+            Setting(Icon(Icons.remove_circle,color: Colors.white),'setting 1', Colors.teal,false),
+            Setting(Icon(Icons.show_chart,color: Colors.white),'setting 1', Colors.yellow,false),
+          ],
+        ),
+      ),
+    );
+  }
+}
