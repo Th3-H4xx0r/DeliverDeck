@@ -1,0 +1,211 @@
+import 'dart:ui';
+import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:line_icons/line_icons.dart';
+
+
+
+
+void main() => runApp(MyApp());
+
+
+ 
+class MyApp extends StatelessWidget {
+
+  
+ // This widget is the root of your application.
+ @override
+ Widget build(BuildContext context) {
+   return MaterialApp(
+     title: 'Flutter Demo',
+     home: HomeScreen(),
+   );
+ }
+}
+
+
+
+class HomeScreen extends StatefulWidget {
+  HomeScreen();
+
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  List job = [['20', 'Amazon Warehouse']];
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        backgroundColor:  Colors.white ,
+        body: ListView(
+          children: <Widget>[
+            SizedBox(
+              height: 10,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                
+                SizedBox(
+                  width: 200,
+                ),
+                
+              ],
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Row(
+              children: <Widget>[
+                SizedBox(
+                  width: 20,
+                ),
+                Text(
+                  'Find Job Requests',
+                  style: TextStyle(
+                      color:  Colors.black ,
+                      fontSize: 30,
+                      fontWeight: FontWeight.w700),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Center(
+              child: Container(
+                height: 45,
+                child: Row(
+                  children: <Widget>[
+                    SizedBox(
+                      width: 10,
+                    ),
+                   
+                    Container(
+                      height: 45,
+                      width: MediaQuery.of(context).size.width * 0.80,
+                      child: TextField(
+                        style: TextStyle(
+                          color:  Colors.black ,
+                        ),
+                        textAlign: TextAlign.center,
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: '   Search',
+                          hintStyle: TextStyle(
+                            color:   Colors.white24,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Container(width: 10,),
+                    Icon(Icons.search),
+                  ],
+                ),
+                width: MediaQuery.of(context).size.width * 0.95,
+                decoration: BoxDecoration(
+                    color: 
+                        Colors.grey[100],
+                        
+                    borderRadius: BorderRadius.circular(10)),
+              ),
+            ),
+            SizedBox(
+              height: 0,
+            ),
+           
+            SizedBox(
+              height: 20,
+            ),
+
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height,
+              child: ListView.builder(
+                itemCount: job.length,
+                itemBuilder: (context, int index){
+              return InkWell(
+
+      onTap: () {
+      },
+      child: Card(
+        color: Colors.grey[100],
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15),
+        ),
+        elevation: 0,
+        margin: EdgeInsets.all(10),
+        child: Column(
+          children: <Widget>[
+            Stack(
+              children: <Widget>[
+                ClipRRect(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(15),
+                    topRight: Radius.circular(15),
+                  ),
+                  child: Image.network(
+                    'https://media.npr.org/assets/img/2013/11/26/amazon_wide-27f5802cec7710e52f61620c0d6d9373f4cb55e6-s800-c85.jpg',
+                    height: 250,
+                    width: double.infinity,
+                    fit: BoxFit.cover,
+                    // BoxFit.cover resizes and crops the image so that it fits nicely into the container
+                  ),
+                  // Image.network creates an image widget that reaches out to the network to fetch the image
+                ),
+                //ClipRRect takes a child and forces that child into a certain form - ex. child is an image that is forced to have rounded corner          ],
+                
+              ],
+            ),
+            Padding(
+              padding: EdgeInsets.all(10),
+              child: Row(
+               
+                // empty space in the row is split up evenly
+                children: <Widget>[
+                  Row(
+                    children: <Widget>[
+                      Icon(Icons.timer, size: 25,),
+                      SizedBox(width: 6),
+                      Text(
+                        DateFormat.yMMMd().format(DateTime.now()),
+                      ),
+                    ],
+                  ),
+                  SizedBox(width: 20,),
+
+                  Row(
+                    children: <Widget>[
+                      Icon(LineIcons.cube, size: 25,),
+                      SizedBox(width: 6),
+                      Text(job[index][0]),
+                    ],
+                  ),
+                  Expanded(child: Container(),),
+                  Container(
+                    alignment: Alignment.centerRight,
+                      child:
+                      Text(job[index][1], style: TextStyle(fontWeight: FontWeight.bold),),
+                   
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+            }),
+            ),
+
+            
+            
+            SizedBox(
+              height: 40,
+            ),
+            
+          ],
+        ));
+  }
+}
